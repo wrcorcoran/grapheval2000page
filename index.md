@@ -24,11 +24,11 @@ Clearly highlight **what makes your research innovative** and **why it matters**
 ## Methodology
 Explain the **methods** used in your research. A visual representation of the methodology can be helpful.
 
-For example, the following figure shows a representation of images on multiple layers of abstraction in deep learning:
+For example, the following figure shows the architecture of a Transformer model:
 <div style="text-align: center;">
-    <img src="/static/image/deep_learning.jpg" alt="Deep Learning" width="500" height="300">
+    <img src="static/image/transformer.png" alt="Deep Learning" width="600" height="300">
 
-    <p><em>Figure 1: Representing images on multiple layers of abstraction in deep learning. Source: <a href="https://upload.wikimedia.org/wikipedia/commons/2/26/Deep_Learning.jpg">Wiki</a>.</em></p>
+    <p><em>Figure 1: A Transformer is composed of stacked encoder layers and decoder layers. Source: <a href="https://upload.wikimedia.org/wikipedia/commons/5/5f/Transformer%2C_stacked_layers_and_sublayers.png">Wiki</a>.</em></p>
 </div>
 
 
