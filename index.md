@@ -3,8 +3,14 @@ layout: project_page
 permalink: /
 
 title: "Your Paper Title"
-authors: "Author 1, Author 2, Author 3"
-affiliations: "University/Institution Name"
+authors: 
+  <a href="https://link-to-author1.com">Author 1<sup>1</sup></a>, 
+  <a href="https://link-to-author2.com">Author 2<sup>2</sup></a>, 
+  <a href="https://link-to-author3.com">Author 3<sup>3</sup></a>
+affiliations: 
+  "University/Institution Name<sup>1</sup>, 
+  University/Institution Name<sup>2</sup>, 
+  University/Institution Name<sup>3</sup>"
 paper: "https://yourpaperlink.com"  # Link to the paper PDF
 video: "https://youtube.com/demo"  # Link to a demo video
 code: "https://github.com/..."  # Link to the code repository
