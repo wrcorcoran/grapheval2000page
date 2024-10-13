@@ -6,7 +6,7 @@
         content="">
   <meta name="keywords" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Your Paper Title</title>
+  <title>GraphEval2000: Benchmarking and Improving Large Language Models on Graph Datasets</title>
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
         rel="stylesheet">
@@ -46,11 +46,11 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">Your Paper Title</h1>
+          <h1 class="title is-1 publication-title">GraphEval2000: Benchmarking and Improving Large Language Models on Graph Datasets</h1>
           
           <div class="is-size-5 publication-authors">
             <span class="author-block">
-              <a href="https://link-to-author1.com">Author 1<sup>1</sup></a>, <a href="https://link-to-author2.com">Author 2<sup>2</sup></a>, <a href="https://link-to-author3.com">Author 3<sup>3</sup></a>
+              <a href="mailto:qimingwu@cs.ucsb.edu">Qiming Wu<sup>1</sup></a>, <a href="mailto:zichen_chen@ucsb.edu">Zichen Chen<sup>1</sup></a>, <a href="mailto:wcorcoran@ucsb.edu">Will Corcoran<sup>1</sup></a>, <a href="mailto:sra@ucsb.edu">Misha Sra<sup>1</sup></a>, <a href="mailto:ambuj@cs.ucsb.edu">Ambuj K. Singh<sup>1</sup></a>
             </span>
           </div>
           
@@ -58,7 +58,7 @@
           
           <div class="is-size-5 publication-authors">
             <span class="author-block">
-              University/Institution Name<sup>1</sup>, University/Institution Name<sup>2</sup>, University/Institution Name<sup>3</sup>
+              University of California, Santa Barbara<sup>1</sup>
             </span>
           </div>
           
@@ -68,7 +68,7 @@
               <!-- PDF Link. -->
               
               <span class="link-block">
-                <a href="https://yourpaperlink.com"
+                <a href="https://arxiv.org/abs/2406.16176"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fas fa-file-pdf"></i>
@@ -79,32 +79,12 @@
               
               <!-- Video Link. -->
               
-              <span class="link-block">
-                <a href="https://youtube.com/demo"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-youtube"></i>
-                  </span>
-                  <span>Video</span>
-                </a>
-              </span>
-              
               <!-- Code Link. -->
-              
-              <span class="link-block">
-                <a href="https://github.com/..."
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-github"></i>
-                  </span>
-                  <span>Code</span>
-                  </a>
-              </span>
               
               <!-- Dataset Link. -->
               
               <span class="link-block">
-                <a href="https://dataset-link.com"
+                <a href="https://github.com/harrywuhust2022/GraphEval2000/raw/main/dataset.zip"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fas fa-database"></i>
@@ -125,48 +105,91 @@
 <div class="container is-max-desktop">
 
 <div class="content">
-  <h2 id="abstractintroduction">Abstract/Introduction</h2>
-<p>This section introduces your research and communicates its relevance.</p>
+  <h2 id="abstract">Abstract</h2>
+<p>Large language models (LLMs) have achieved remarkable success in natural language processing (NLP), demonstrating significant capabilities in processing and understanding text data. However, recent studies have identified limitations in LLMs’ ability to reason about graph-structured data. To address this gap, we introduce GraphEval2000, the <strong>first</strong> comprehensive graph dataset, comprising 40 graph data structure problems along with 2000 test cases. Additionally, we introduce an evaluation framework based on GraphEval2000, designed to assess the graph reasoning abilities of LLMs through coding challenges. Our dataset categorizes test cases into four primary and four sub-categories, ensuring a comprehensive evaluation. We evaluate eight popular LLMs on GraphEval2000, revealing that LLMs exhibit a better understanding of directed graphs compared to undirected ones. While private LLMs consistently outperform open-source models, the performance gap is narrowing. Furthermore, to improve the usability of our evaluation framework, we propose Structured Symbolic Decomposition (SSD), an instruction-based method designed to enhance LLM performance on GraphEval2000. Results show that SSD improves the performance of GPT-3.5, GPT-4, and GPT-4o on complex graph problems, with the increase of 11.11%, 33.37%, and 33.37%, respectively.</p>
 
-<h2 id="key-contributions">Key Contributions</h2>
-<p>Clearly highlight <strong>what makes your research innovative</strong> and <strong>why it matters</strong>.</p>
+<!-- ## Key Contributions
+Clearly highlight **what makes your research innovative** and **why it matters**.  -->
 
 <h2 id="methodology">Methodology</h2>
-<p>Explain the <strong>methods</strong> used in your research. A visual representation of the methodology can be helpful.</p>
+<h4 id="pipeline">Pipeline</h4>
+<div style="text-align: left;">
+    <img src="static/image/pipeline.png" alt="Pipeline" width="600" height="300" />
 
-<p>For example, the following figure shows the architecture of a Transformer model:</p>
-<div style="text-align: center;">
-    <img src="static/image/transformer.png" alt="Deep Learning" width="600" height="300" />
-
-    <p><em>Figure 1: A Transformer is composed of stacked encoder layers and decoder layers. Source: <a href="https://upload.wikimedia.org/wikipedia/commons/5/5f/Transformer%2C_stacked_layers_and_sublayers.png">Wiki</a>.</em></p>
+    <p><em>Figure 1: Overview of the Evaluation Framework. For each problem, we input problem statement, data examples, and code framework to LLMs. And then they complete the code and give explanations. Finally, the framework evaluates the code on GraphEval2000 and returns the result details.</em></p>
 </div>
+<p><br /></p>
+<div style="text-align: left;">
+    <img src="static/image/data_collection.png" alt="Data Collection" width="600" height="300" />
+
+    <p><em>Figure 2: The overview pipeline of GraphEval2000 dataset construction.</em></p>
+</div>
+<p><br /></p>
+
+<h4 id="structured-symbolic-decomposition">Structured Symbolic Decomposition</h4>
+<p>To enhance the usability of our evaluation framework and GraphEval2000, we introduce Structured Symbolic Decomposition (SSD), an instruction-based method utilizing test cases from GraphEval2000 for graph problems. Our approach aims to enable LLMs to perform better graph reasoning, especially, for hard-level problems.</p>
+
+<h5 id="instructions-for-llm">Instructions for LLM</h5>
+
+<p>The instructions are composed of four parts: <em>problem clarification</em>, <em>problem breakdown</em>, <em>solution formulation</em>, and <em>program implementation</em>.</p>
+
+<ul>
+  <li><strong>Problem Clarification:</strong>
+    <ol>
+      <li>Cognitive Step: <em>You must first understand and clearly articulate the problem, including all inputs and desired outputs.</em></li>
+      <li>Action Step: <em>Identify and list any specific rules, constraints, or conditions that influence the solution. Use the test case examples to assist the understanding.</em></li>
+    </ol>
+  </li>
+  <li><strong>Problem Breakdown:</strong>
+    <ol>
+      <li>Cognitive Step: <em>Decompose the problem into smaller, manageable sub-problems, translating it into a symbolic form and identifying the key components and relationships within the problem.</em></li>
+      <li>Action Step: <em>Outline the sequential steps required to solve the overall problem.</em></li>
+    </ol>
+  </li>
+  <li><strong>Solution Formulation:</strong>
+    <ol>
+      <li>Cognitive Step: <em>Formulate solving strategies using the symbolic form developed in the previous step and define the algorithms and methods needed to address each sub-problem.</em></li>
+      <li>Action Step: <em>Detail the algorithms and approaches for each sub-problem, ensuring they are logically connected and comprehensive.</em></li>
+    </ol>
+  </li>
+  <li><strong>Program Implementation:</strong>
+    <ol>
+      <li>Cognitive Step: <em>Conceptualize the implementation of each solution component.</em></li>
+      <li>Action Step: <em>Write a program for each breakdown part, ensuring it aligns with the formulated strategy. Run test cases to verify the correctness of each component.</em></li>
+    </ol>
+  </li>
+</ul>
 
 <h2 id="visual-results">Visual Results</h2>
-<p>The images of your results help <strong>visually convey the impact</strong> of your work. 
-Use captions to provide context and emphasize the significance of the visual examples.</p>
+<div style="text-align: left;">
+    <img src="static/image/online_leetcode_test.png" alt="Online Leetcode Test" width="600" height="300" />
 
-<h2 id="video-demo">Video Demo</h2>
-<p>A video demo can be a powerful way to <strong>showcase your work</strong>.</p>
+    <p><em>Figure 3: Evaluation results of LLMs on the LeetCode platform. This figure shows the passing rates of LLMs on selected graph data structure problems, categorized into 3 easy-level problems, 5 medium-level problems, and 9 hard-level problems..</em></p>
+</div>
+<p><br /></p>
+<div style="text-align: left;">
+    <img src="static/image/ssd_results.png" alt="SSD Results" width="600" height="300" />
 
-<p>An example of a video demo of ‘‘Humans vs. AI: Who should make the decision?’’ is shown below:</p>
-<div style="text-align: center;">
-
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/8lo1s29ODj8?si=LY36_HrZ8TieTq7v" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
-
-    <p><em>Video 1: Humans vs. AI: Who should make the decision? Source: <a href="https://www.youtube.com/watch?v=8lo1s29ODj8">YouTube</a>.</em></p>
+    <p><em>Figure 4: Passing rate comparison across eight LLMs, focusing on GPT-3.5, GPT-4, and GPT-4o to highlight the performance gains from using SSD</em></p>
 </div>
 
 <h2 id="contact-information">Contact Information</h2>
-<p>Provide your contact information for further inquiries or collaborations.</p>
+<ul>
+  <li><a href="mailto:qimingwu@cs.ucsb.edu">Qiming Wu</a></li>
+  <li><a href="mailto:zichen_chen@ucsb.edu">Zichen Chen</a></li>
+  <li><a href="mailto:wcorcoran@ucsb.edu">Will Corcoran</a></li>
+  <li><a href="mailto:sra@ucsb.edu">Misha Sra</a></li>
+  <li><a href="mailto:ambuj@cs.ucsb.edu">Ambuj K. Singh</a></li>
+</ul>
 
 <h2 id="citation">Citation</h2>
 <p>Please cite this paper as follows:</p>
 
-<div class="language-bibtex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">@inproceedings</span><span class="p">{</span><span class="nl">yourcitation2024</span><span class="p">,</span>
-  <span class="na">title</span><span class="p">=</span><span class="s">{Your Paper Title}</span><span class="p">,</span>
-  <span class="na">author</span><span class="p">=</span><span class="s">{Author 1 and Author 2 and Author 3}</span><span class="p">,</span>
-  <span class="na">booktitle</span><span class="p">=</span><span class="s">{Conference Name 2024}</span><span class="p">,</span>
-  <span class="na">year</span><span class="p">=</span><span class="s">{2024}</span>
+<div class="language-bibtex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">@article</span><span class="p">{</span><span class="nl">wu2024grapheval2000</span><span class="p">,</span>
+  <span class="na">author</span>    <span class="p">=</span> <span class="s">{Qiming Wu and Zichen Chen and Will Corcoran and Misha Sra and Ambuj K. Singh}</span><span class="p">,</span>
+  <span class="na">title</span>     <span class="p">=</span> <span class="s">{GraphEval2000: Benchmarking and Improving Large Language Models on Graph Datasets}</span><span class="p">,</span>
+  <span class="na">year</span>      <span class="p">=</span> <span class="s">{2024}</span><span class="p">,</span>
+  <span class="na">url</span>       <span class="p">=</span> <span class="s">{https://doi.org/10.48550/arXiv.2406.16176}</span><span class="p">,</span>
 <span class="p">}</span>
 </code></pre></div></div>
 

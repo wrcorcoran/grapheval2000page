@@ -2,73 +2,97 @@
 layout: project_page
 permalink: /
 
-title: "Your Paper Title"
+title: "GraphEval2000: Benchmarking and Improving Large
+Language Models on Graph Datasets"
 authors: 
-  <a href="https://link-to-author1.com">Author 1<sup>1</sup></a>, 
-  <a href="https://link-to-author2.com">Author 2<sup>2</sup></a>, 
-  <a href="https://link-to-author3.com">Author 3<sup>3</sup></a>
+  <a href="mailto:qimingwu@cs.ucsb.edu">Qiming Wu<sup>1</sup></a>, 
+  <a href="mailto:zichen_chen@ucsb.edu">Zichen Chen<sup>1</sup></a>, 
+  <a href="mailto:wcorcoran@ucsb.edu">Will Corcoran<sup>1</sup></a>,
+  <a href="mailto:sra@ucsb.edu">Misha Sra<sup>1</sup></a>,
+  <a href="mailto:ambuj@cs.ucsb.edu">Ambuj K. Singh<sup>1</sup></a>
 affiliations: 
-  "University/Institution Name<sup>1</sup>, 
-  University/Institution Name<sup>2</sup>, 
-  University/Institution Name<sup>3</sup>"
-paper: "https://yourpaperlink.com"  # Link to the paper PDF
-video: "https://youtube.com/demo"  # Link to a demo video
-code: "https://github.com/..."  # Link to the code repository
-data: "https://dataset-link.com"  # Link to dataset (if applicable)
+  "University of California, Santa Barbara<sup>1</sup>"
+paper: "https://arxiv.org/abs/2406.16176"  # Link to the paper PDF
+# video: "https://youtube.com/demo"  # Link to a demo video
+# code: "https://github.com/..."  # Link to the code repository
+data: "https://github.com/harrywuhust2022/GraphEval2000/raw/main/dataset.zip"  # Link to dataset (if applicable)
 description: "A brief abstract or description of your paper."
-
 ---
+## Abstract
+Large language models (LLMs) have achieved remarkable success in natural language processing (NLP), demonstrating significant capabilities in processing and understanding text data. However, recent studies have identified limitations in LLMs’ ability to reason about graph-structured data. To address this gap, we introduce GraphEval2000, the **first** comprehensive graph dataset, comprising 40 graph data structure problems along with 2000 test cases. Additionally, we introduce an evaluation framework based on GraphEval2000, designed to assess the graph reasoning abilities of LLMs through coding challenges. Our dataset categorizes test cases into four primary and four sub-categories, ensuring a comprehensive evaluation. We evaluate eight popular LLMs on GraphEval2000, revealing that LLMs exhibit a better understanding of directed graphs compared to undirected ones. While private LLMs consistently outperform open-source models, the performance gap is narrowing. Furthermore, to improve the usability of our evaluation framework, we propose Structured Symbolic Decomposition (SSD), an instruction-based method designed to enhance LLM performance on GraphEval2000. Results show that SSD improves the performance of GPT-3.5, GPT-4, and GPT-4o on complex graph problems, with the increase of 11.11%, 33.37%, and 33.37%, respectively.
 
 
-## Abstract/Introduction
-This section introduces your research and communicates its relevance. 
-
-
-## Key Contributions
-Clearly highlight **what makes your research innovative** and **why it matters**. 
+<!-- ## Key Contributions
+Clearly highlight **what makes your research innovative** and **why it matters**.  -->
 
 ## Methodology
-Explain the **methods** used in your research. A visual representation of the methodology can be helpful.
+#### Pipeline
+<div style="text-align: left;">
+    <img src="static/image/pipeline.png" alt="Pipeline" width="600" height="300">
 
-For example, the following figure shows the architecture of a Transformer model:
-<div style="text-align: center;">
-    <img src="static/image/transformer.png" alt="Deep Learning" width="600" height="300">
-
-    <p><em>Figure 1: A Transformer is composed of stacked encoder layers and decoder layers. Source: <a href="https://upload.wikimedia.org/wikipedia/commons/5/5f/Transformer%2C_stacked_layers_and_sublayers.png">Wiki</a>.</em></p>
+    <p><em>Figure 1: Overview of the Evaluation Framework. For each problem, we input problem statement, data examples, and code framework to LLMs. And then they complete the code and give explanations. Finally, the framework evaluates the code on GraphEval2000 and returns the result details.</em></p>
 </div>
+<br>
+<div style="text-align: left;">
+    <img src="static/image/data_collection.png" alt="Data Collection" width="600" height="300">
 
+    <p><em>Figure 2: The overview pipeline of GraphEval2000 dataset construction.</em></p>
+</div>
+<br>
+
+#### Structured Symbolic Decomposition
+To enhance the usability of our evaluation framework and GraphEval2000, we introduce Structured Symbolic Decomposition (SSD), an instruction-based method utilizing test cases from GraphEval2000 for graph problems. Our approach aims to enable LLMs to perform better graph reasoning, especially, for hard-level problems.
+
+##### Instructions for LLM
+
+The instructions are composed of four parts: *problem clarification*, *problem breakdown*, *solution formulation*, and *program implementation*.
+
+- **Problem Clarification:**
+    1. Cognitive Step: *You must first understand and clearly articulate the problem, including all inputs and desired outputs.*
+    2. Action Step: *Identify and list any specific rules, constraints, or conditions that influence the solution. Use the test case examples to assist the understanding.*
+  
+- **Problem Breakdown:**
+    1. Cognitive Step: *Decompose the problem into smaller, manageable sub-problems, translating it into a symbolic form and identifying the key components and relationships within the problem.*
+    2. Action Step: *Outline the sequential steps required to solve the overall problem.*
+  
+- **Solution Formulation:**
+    1. Cognitive Step: *Formulate solving strategies using the symbolic form developed in the previous step and define the algorithms and methods needed to address each sub-problem.*
+    2. Action Step: *Detail the algorithms and approaches for each sub-problem, ensuring they are logically connected and comprehensive.*
+
+- **Program Implementation:**
+    1. Cognitive Step: *Conceptualize the implementation of each solution component.*
+    2. Action Step: *Write a program for each breakdown part, ensuring it aligns with the formulated strategy. Run test cases to verify the correctness of each component.*
 
 
 ## Visual Results
-The images of your results help **visually convey the impact** of your work. 
-Use captions to provide context and emphasize the significance of the visual examples. 
+<div style="text-align: left;">
+    <img src="static/image/online_leetcode_test.png" alt="Online Leetcode Test" width="600" height="300">
 
+    <p><em>Figure 3: Evaluation results of LLMs on the LeetCode platform. This figure shows the passing rates of LLMs on selected graph data structure problems, categorized into 3 easy-level problems, 5 medium-level problems, and 9 hard-level problems..</em></p>
+</div>
+<br>
+<div style="text-align: left;">
+    <img src="static/image/ssd_results.png" alt="SSD Results" width="600" height="300">
 
-## Video Demo
-A video demo can be a powerful way to **showcase your work**.
-
-An example of a video demo of ''Humans vs. AI: Who should make the decision?'' is shown below:
-<div style="text-align: center;">
-
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/8lo1s29ODj8?si=LY36_HrZ8TieTq7v" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-    <p><em>Video 1: Humans vs. AI: Who should make the decision? Source: <a href="https://www.youtube.com/watch?v=8lo1s29ODj8">YouTube</a>.</em></p>
+    <p><em>Figure 4: Passing rate comparison across eight LLMs, focusing on GPT-3.5, GPT-4, and GPT-4o to highlight the performance gains from using SSD</em></p>
 </div>
 
-
-
 ## Contact Information
-Provide your contact information for further inquiries or collaborations.
+- [Qiming Wu](mailto:qimingwu@cs.ucsb.edu)
+- [Zichen Chen](mailto:zichen_chen@ucsb.edu)
+- [Will Corcoran](mailto:wcorcoran@ucsb.edu)
+- [Misha Sra](mailto:sra@ucsb.edu)
+- [Ambuj K. Singh](mailto:ambuj@cs.ucsb.edu)
 
 
 ## Citation
 Please cite this paper as follows:
 
 ```bibtex
-@inproceedings{yourcitation2024,
-  title={Your Paper Title},
-  author={Author 1 and Author 2 and Author 3},
-  booktitle={Conference Name 2024},
-  year={2024}
+@article{wu2024grapheval2000,
+  author    = {Qiming Wu and Zichen Chen and Will Corcoran and Misha Sra and Ambuj K. Singh},
+  title     = {GraphEval2000: Benchmarking and Improving Large Language Models on Graph Datasets},
+  year      = {2024},
+  url       = {https://doi.org/10.48550/arXiv.2406.16176},
 }
 ```
