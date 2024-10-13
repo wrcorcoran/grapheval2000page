@@ -4,14 +4,14 @@ permalink: /
 
 title: "GraphEval36K: Evaluating Coding and Reasoning Capabilities of Large
 Language Models on Graph Datasets"
-authors: 
-  <a href="mailto:qimingwu@cs.ucsb.edu">Qiming Wu<sup>1</sup></a>, 
-  <a href="mailto:zichen_chen@ucsb.edu">Zichen Chen<sup>1</sup></a>, 
-  <a href="mailto:wcorcoran@ucsb.edu">Will Corcoran<sup>1</sup></a>,
-  <a href="mailto:sra@ucsb.edu">Misha Sra<sup>1</sup></a>,
-  <a href="mailto:ambuj@cs.ucsb.edu">Ambuj K. Singh<sup>1</sup></a>
-affiliations: 
-  "University of California, Santa Barbara<sup>1</sup>"
+# authors: 
+#   <a href="mailto:qimingwu@cs.ucsb.edu">Qiming Wu<sup>1</sup></a>, 
+#   <a href="mailto:zichen_chen@ucsb.edu">Zichen Chen<sup>1</sup></a>, 
+#   <a href="mailto:wcorcoran@ucsb.edu">Will Corcoran<sup>1</sup></a>,
+#   <a href="mailto:sra@ucsb.edu">Misha Sra<sup>1</sup></a>,
+#   <a href="mailto:ambuj@cs.ucsb.edu">Ambuj K. Singh<sup>1</sup></a>
+# affiliations: 
+#   "University of California, Santa Barbara<sup>1</sup>"
 # paper: "https://arxiv.org/abs/2406.16176"  # Link to the paper PDF
 # video: "https://youtube.com/demo"  # Link to a demo video
 # code: "https://github.com/..."  # Link to the code repository
@@ -76,7 +76,7 @@ The instructions are composed of four parts: *problem clarification*, *problem b
     <p><em>Figure 4: Passing rate comparison across eight LLMs, focusing on GPT-3.5, GPT-4, and GPT-4o to highlight the performance gains from using SSD</em></p>
 </div>
 
-## Contact Information
+<!-- ## Contact Information
 - [Qiming Wu](mailto:qimingwu@cs.ucsb.edu)
 - [Zichen Chen](mailto:zichen_chen@ucsb.edu)
 - [Will Corcoran](mailto:wcorcoran@ucsb.edu)
@@ -93,4 +93,4 @@ Please cite this paper as follows:
   title     = {GraphEval36K: Evaluating Coding and Reasoning Capabilities of Large Language Models on Graph Datasets},
   year      = {2024},
 }
-```
+``` -->
