@@ -2,7 +2,7 @@
 layout: project_page
 permalink: /
 
-title: "GraphEval2000: Benchmarking and Improving Large
+title: "GraphEval36K: Evaluating Coding and Reasoning Capabilities of Large
 Language Models on Graph Datasets"
 authors: 
   <a href="mailto:qimingwu@cs.ucsb.edu">Qiming Wu<sup>1</sup></a>, 
@@ -12,15 +12,14 @@ authors:
   <a href="mailto:ambuj@cs.ucsb.edu">Ambuj K. Singh<sup>1</sup></a>
 affiliations: 
   "University of California, Santa Barbara<sup>1</sup>"
-paper: "https://arxiv.org/abs/2406.16176"  # Link to the paper PDF
+# paper: "https://arxiv.org/abs/2406.16176"  # Link to the paper PDF
 # video: "https://youtube.com/demo"  # Link to a demo video
 # code: "https://github.com/..."  # Link to the code repository
-data: "https://github.com/harrywuhust2022/GraphEval2000/raw/main/dataset.zip"  # Link to dataset (if applicable)
+# data: "https://github.com/harrywuhust2022/GraphEval2000/raw/main/dataset.zip"  # Link to dataset (if applicable)
 description: "A brief abstract or description of your paper."
 ---
 ## Abstract
-Large language models (LLMs) have achieved remarkable success in natural language processing (NLP), demonstrating significant capabilities in processing and understanding text data. However, recent studies have identified limitations in LLMs’ ability to reason about graph-structured data. To address this gap, we introduce GraphEval2000, the **first** comprehensive graph dataset, comprising 40 graph data structure problems along with 2000 test cases. Additionally, we introduce an evaluation framework based on GraphEval2000, designed to assess the graph reasoning abilities of LLMs through coding challenges. Our dataset categorizes test cases into four primary and four sub-categories, ensuring a comprehensive evaluation. We evaluate eight popular LLMs on GraphEval2000, revealing that LLMs exhibit a better understanding of directed graphs compared to undirected ones. While private LLMs consistently outperform open-source models, the performance gap is narrowing. Furthermore, to improve the usability of our evaluation framework, we propose Structured Symbolic Decomposition (SSD), an instruction-based method designed to enhance LLM performance on GraphEval2000. Results show that SSD improves the performance of GPT-3.5, GPT-4, and GPT-4o on complex graph problems, with the increase of 11.11%, 33.37%, and 33.37%, respectively.
-
+Large language models (LLMs) have achieved remarkable success in natural language processing (NLP), demonstrating significant capabilities in processing and understanding text data. However, recent studies have identified limitations in LLMs’ ability to reason about graph-structured data. To address this gap, we introduce GraphEval36k, the **first** comprehensive graph dataset, comprising 40 graph data structure problems along with 36,900 test cases. Additionally, we introduce an evaluation framework based on GraphEval36k, designed to assess the graph reasoning abilities of LLMs through coding challenges. Our dataset categorizes test cases into four primary and four sub-categories, ensuring a comprehensive evaluation. We evaluate eight popular LLMs on GraphEval36k, revealing that LLMs exhibit a better understanding of directed graphs compared to undirected ones. While private LLMs consistently outperform open-source models, the performance gap is narrowing. Furthermore, to improve the usability of our evaluation framework, we propose Structured Symbolic Decomposition (SSD), an instruction-based method designed to enhance LLM performance on GraphEval36k. Results show that SSD improves the performance of GPT-3.5, GPT-4, and GPT-4o on complex graph problems, with the increase of 11.11%, 33.37%, and 33.37%, respectively.
 
 <!-- ## Key Contributions
 Clearly highlight **what makes your research innovative** and **why it matters**.  -->
@@ -30,18 +29,18 @@ Clearly highlight **what makes your research innovative** and **why it matters**
 <div style="text-align: left;">
     <img src="static/image/pipeline.png" alt="Pipeline" width="600" height="300">
 
-    <p><em>Figure 1: Overview of the Evaluation Framework. For each problem, we input problem statement, data examples, and code framework to LLMs. And then they complete the code and give explanations. Finally, the framework evaluates the code on GraphEval2000 and returns the result details.</em></p>
+    <p><em>Figure 1: Overview of the Evaluation Framework. For each problem, we input problem statement, data examples, and code framework to LLMs. And then they complete the code and give explanations. Finally, the framework evaluates the code on GraphEval36k and returns the result details.</em></p>
 </div>
 <br>
 <div style="text-align: left;">
     <img src="static/image/data_collection.png" alt="Data Collection" width="600" height="300">
 
-    <p><em>Figure 2: The overview pipeline of GraphEval2000 dataset construction.</em></p>
+    <p><em>Figure 2: The overview pipeline of GraphEval36k dataset construction.</em></p>
 </div>
 <br>
 
 #### Structured Symbolic Decomposition
-To enhance the usability of our evaluation framework and GraphEval2000, we introduce Structured Symbolic Decomposition (SSD), an instruction-based method utilizing test cases from GraphEval2000 for graph problems. Our approach aims to enable LLMs to perform better graph reasoning, especially, for hard-level problems.
+To enhance the usability of our evaluation framework and GraphEval36k, we introduce Structured Symbolic Decomposition (SSD), an instruction-based method utilizing test cases from GraphEval36k for graph problems. Our approach aims to enable LLMs to perform better graph reasoning, especially, for hard-level problems.
 
 ##### Instructions for LLM
 
@@ -66,9 +65,9 @@ The instructions are composed of four parts: *problem clarification*, *problem b
 
 ## Visual Results
 <div style="text-align: left;">
-    <img src="static/image/online_leetcode_test.png" alt="Online Leetcode Test" width="600" height="300">
+    <img src="static/image/results.png" alt="Online Leetcode Test" width="600" height="300">
 
-    <p><em>Figure 3: Evaluation results of LLMs on the LeetCode platform. This figure shows the passing rates of LLMs on selected graph data structure problems, categorized into 3 easy-level problems, 5 medium-level problems, and 9 hard-level problems..</em></p>
+    <p><em>FEvaluation Results on GraphEval36K. This table presents the passing rates (%) of LLMs across various graph categories. The first row lists the names of the evaluated LLMs, while the first column categorizes the graphs as follows: "SG" denotes sparse graphs, "PG" denotes planar graphs, "RG" denotes regular graphs, "DG" denotes dense graphs and "CG" denotes complete graphs. Additionally, the following abbreviations are used to describe graph characteristics: "c" for connected graphs, "dc" for disconnected graphs, "cy" for cyclic graphs, and "acy" for acyclic graphs. This classification corresponds to Figure 3. The passing rates (%) are represented as "directed | undirected" for each graph category, where the number preceding the bar indicates the result for directed graphs, and the number following the bar indicates the result for undirected graphs. "NA" signifies that the category is not applicable. We bold the largest number in each row.</em></p>
 </div>
 <br>
 <div style="text-align: left;">
@@ -89,10 +88,9 @@ The instructions are composed of four parts: *problem clarification*, *problem b
 Please cite this paper as follows:
 
 ```bibtex
-@article{wu2024grapheval2000,
+@article{wu2024grapheval36k,
   author    = {Qiming Wu and Zichen Chen and Will Corcoran and Misha Sra and Ambuj K. Singh},
-  title     = {GraphEval2000: Benchmarking and Improving Large Language Models on Graph Datasets},
+  title     = {GraphEval36K: Evaluating Coding and Reasoning Capabilities of Large Language Models on Graph Datasets},
   year      = {2024},
-  url       = {https://doi.org/10.48550/arXiv.2406.16176},
 }
 ```
